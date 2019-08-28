@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+    <span>Comments</span>
+    <span class="flex-spacer"></span>
+    <div *ngIf="!userWrapper.user">
+        <button mat-button (click)="openLoginForm()">Login</button>
+    </div>
+    <div *ngIf="userWrapper.user">
+        <button mat-button (click)="logOut()">Logout</button>
+    </div>
+    <button mat-button (click)="openSignUpForm()">Sign up</button>
+</mat-toolbar>

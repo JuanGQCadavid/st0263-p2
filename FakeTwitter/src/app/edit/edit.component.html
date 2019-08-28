@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+    Edit
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close>&times;</button>
+</mat-toolbar>
+
+<form novalidate [formGroup]="editForm" ##fform="ngForm" (ngSubmit)="onSubmit()">
+    <p>
+        <mat-form-field>
+            <input matInput formControlName="topic" placeholder="Topic" type="text" required>
+            <mat-error *ngIf="formErrors.topic">
+                {{ formErrors.topic}}
+            </mat-error>
+        </mat-form-field>
+    </p>
+    <p>
+        <mat-form-field>
+            <textarea matInput formControlName="comment" placeholder="Type your comment" rows="10" cols="100" required>
+            </textarea>
+            <mat-error *ngIf="formErrors.comment">
+                {{ formErrors.comment}}
+            </mat-error>
+        </mat-form-field>
+    </p>
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" type="submit"
+        [disabled]="editForm.invalid">Change</button>
+</form>

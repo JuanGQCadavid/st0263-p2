@@ -1,0 +1,57 @@
+<div class="container"
+    fxLayout="row"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutGap="10px"
+    fxLayoutGap.xs="0">
+
+    <div fxFlex="20">
+        <h3>
+            Filter
+        </h3>
+        <form novalidate [formGroup]="filterForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+            <p>
+                <mat-form-field>
+                    <input matInput formControlName="author" placeholder="Author" type="text">
+                </mat-form-field>
+            </p>
+            <p>
+                <mat-form-field>
+                    <input matInput formControlName="topic" placeholder="Topic" type="text">
+                </mat-form-field>
+            </p>
+            <button type="submit" mat-raised-button color="primary">
+                Filter
+            </button>
+             <button style="margin-left:5px" type="submit" mat-raised-button color="primary">
+                Refresh
+            </button>
+        </form>
+        <mat-divider class="space-top"></mat-divider>
+        <div *ngIf="userWrapper.user">
+            <button class="space-top" mat-raised-button color="primary" (click)="openComposeForm()">Compose</button>
+        </div>
+    </div>
+
+    <mat-divider [vertical]="true"></mat-divider>
+
+    <div fxFlex="80">
+        <h3>Feed</h3>
+        <mat-list *ngIf="tweets">
+            <mat-list-item *ngFor="let tweet of tweets">
+                <p matLine>@{{tweet.author}}</p>
+                <p class="gray-text" matLine>#{{tweet.topic}} {{tweet.createdAt | date}}</p>
+                <p matLine>{{tweet.content}}</p>
+                <div *ngIf="userWrapper.user && userWrapper.user.username == tweet.author" matLine>
+                    <button mat-raised-button class="separate" (click)="openEditForm(tweet)">Edit</button>
+                    <button mat-raised-button class="separate" (click)="deleteTweet(tweet)">Delete</button>
+                </div>
+            </mat-list-item>
+        </mat-list>
+    </div>
+
+    <div fxFlex="80" [hidden]="tweets">
+        <mat-spinner></mat-spinner> <h4>Loading . . . Please Wait</h4>
+    </div>
+
+</div>
