@@ -16,6 +16,7 @@ services:
     depends_on:
       - certbot
       - express
+    restart: always
 
   certbot:
     image: certbot/certbot
@@ -31,6 +32,7 @@ services:
       - database # link this service to the database service
     depends_on:
       - database
+    restart: always
 
   database: # name of the third service
     image: mongo # specify image to build container from
@@ -38,3 +40,4 @@ services:
       - ./data:/data/db
     ports:
       - "27017:27017" # specify port forewarding
+    restart: always

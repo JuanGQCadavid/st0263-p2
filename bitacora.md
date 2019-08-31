@@ -74,3 +74,50 @@ Desarrollo de la primera semana de contenido:
 
 ### Progreso en proyecto 1
 * Despliegue de la aplicación en AWS y DCA con soporte para https.
+
+## 26-08-2019 - 01-09-2019
+### Progreso en proyecto 2
+* Checklist de performance teniendo en cuenta el libro:
+- [x] Jmeter tests antes de mejoras.
+- [ ] Jmeter tests después de mejoras.
+- [x] Responsive design.
+- [x] Optimizar performance de nginx.
+- [x] Reducir tamaño de recursos estáticos.
+- [x] Distribución geográfica (no aplica).
+- [ ] Repetir Jmeter tests después de realizadas las tareas de disponibilidad y seguridad.
+
+#### Jmeter tests antes de mejoras
+* http
+---
+1
+[http test before with 1](jmeter/http-before-1/index.html)
+
+10
+[http test before with 10](jmeter/http-before-10/index.html)
+
+50
+[http test before with 50](jmeter/http-before-50/index.html)
+
+* https
+---
+1
+[https test before with 1](jmeter/https-before-1/index.html)
+
+10
+[http test before with 10](jmeter/https-before-10/index.html)
+
+50
+[http test before with 50](jmeter/https-before-50/index.html)
+
+#### Jmeter tests después de mejoras
+* http
+---
+![http test after](jmeter/http-after.png)
+* https
+---
+![https test after](jmeter/https-after.png)
+
+#### Jmeter tests después de realizadas las tareas de disponibilidad y seguridad
+* Solo https por que corresponde con el parametro de seguridad
+---
+![test after others finished](jmeter/http-after-others.png)

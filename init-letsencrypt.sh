@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(valentarmo-st0263p1.tk www.valentarmo-st0263p1.tk)
+domains=(valentarmo.tk www.valentarmo.tk)
 rsa_key_size=4096
 data_path="./FakeTwitter/certbot"
 email="valentarmo@outlook.com" # Adding a valid address is strongly recommended

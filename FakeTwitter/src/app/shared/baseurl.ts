@@ -1,1 +1,1 @@
-export const baseURL = 'https://valentarmo-st0263p1.tk/data/';
+export const baseURL = 'https://valentarmo.tk/data/';
