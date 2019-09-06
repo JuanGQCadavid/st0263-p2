@@ -76,7 +76,7 @@ Desarrollo de la primera semana de contenido:
 * Despliegue de la aplicación en AWS y DCA con soporte para https.
 
 ## 26-08-2019 - 01-09-2019
-### Progreso en proyecto 2
+### Progreso en proyecto 2 Performance
 * Checklist de performance teniendo en cuenta el libro:
 - [x] Jmeter tests antes de mejoras.
 - [x] Jmeter tests después de mejoras.
@@ -86,11 +86,12 @@ Desarrollo de la primera semana de contenido:
 - [x] Distribución geográfica (no aplica).
 - [ ] Repetir tests después de realizadas las tareas de disponibilidad y seguridad.
 
+## 02-09-2019 - 08-09-2029
 #### Tests antes de mejoras
 ---
-![Tiempo de carga 1](performance/load_time/before1)
+![Tiempo de carga 1](performance/load_time/before1/png)
 
-![Tiempo de carga 2](performance/load_time/before2)
+![Tiempo de carga 2](performance/load_time/before2.png)
 
 [jmeter](performance/jmeter/before_1024)
 
@@ -98,9 +99,9 @@ Desarrollo de la primera semana de contenido:
 ---
 El tiempo de carga pasó de ~40s a ~2s y las TPS pasaron de 3.7 a 12.37
 
-![Tiempo de carga 1](performance/load_time/after1)
+![Tiempo de carga 1](performance/load_time/after1.png)
 
-![Tiempo de carga 2](performance/load_time/after2)
+![Tiempo de carga 2](performance/load_time/after2.png)
 
 [jmeter](performance/jmeter/after_1024)
 
