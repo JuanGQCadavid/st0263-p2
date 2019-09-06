@@ -79,45 +79,31 @@ Desarrollo de la primera semana de contenido:
 ### Progreso en proyecto 2
 * Checklist de performance teniendo en cuenta el libro:
 - [x] Jmeter tests antes de mejoras.
-- [ ] Jmeter tests después de mejoras.
+- [x] Jmeter tests después de mejoras.
 - [x] Responsive design.
 - [x] Optimizar performance de nginx.
 - [x] Reducir tamaño de recursos estáticos.
 - [x] Distribución geográfica (no aplica).
-- [ ] Repetir Jmeter tests después de realizadas las tareas de disponibilidad y seguridad.
+- [ ] Repetir tests después de realizadas las tareas de disponibilidad y seguridad.
 
-#### Jmeter tests antes de mejoras
-* http
+#### Tests antes de mejoras
 ---
-1
-[http test before with 1](jmeter/http-before-1/index.html)
+![Tiempo de carga 1](performance/load_time/before1)
 
-10
-[http test before with 10](jmeter/http-before-10/index.html)
+![Tiempo de carga 2](performance/load_time/before2)
 
-50
-[http test before with 50](jmeter/http-before-50/index.html)
+[jmeter](performance/jmeter/before_1024)
 
-* https
+#### Tests después de mejoras
 ---
-1
-[https test before with 1](jmeter/https-before-1/index.html)
+El tiempo de carga pasó de ~40s a ~2s y las TPS pasaron de 3.7 a 12.37
 
-10
-[http test before with 10](jmeter/https-before-10/index.html)
+![Tiempo de carga 1](performance/load_time/after1)
 
-50
-[http test before with 50](jmeter/https-before-50/index.html)
+![Tiempo de carga 2](performance/load_time/after2)
 
-#### Jmeter tests después de mejoras
-* http
+[jmeter](performance/jmeter/after_1024)
+
+#### Tests después de realizadas las tareas de disponibilidad y seguridad
 ---
-![http test after](jmeter/http-after.png)
-* https
----
-![https test after](jmeter/https-after.png)
-
-#### Jmeter tests después de realizadas las tareas de disponibilidad y seguridad
-* Solo https por que corresponde con el parametro de seguridad
----
-![test after others finished](jmeter/http-after-others.png)
+TODO
