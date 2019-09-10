@@ -30,7 +30,13 @@ export class LoginService {
   }
 
   logout() {
-    this.userWrapper.user = null;
+     const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    this.http.get(baseURL + 'users/login')
+      .subscribe((response) => { this.userWrapper.user = null });
   }
 
   signup(user: User) {
