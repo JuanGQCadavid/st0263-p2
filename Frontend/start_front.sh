@@ -26,6 +26,6 @@ docker rm twitter-front
 docker build -t twitter-img .
 
 docker run --name twitter-front \
-    -p 80-443:80-443 \
+    -p 80-443-5000:80-443-5000 \
     -d \
     twitter-img
