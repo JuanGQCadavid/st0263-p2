@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 const cors = require('cors');
+const authenticate = require('../authenticate');
 
 const Tweets = require('../models/tweets');
 
@@ -38,7 +38,7 @@ tweetRouter.route('/')
         .catch((err) => next(err));
     }
 })
-.post(cors(), (req, res, next) => {
+.post(cors(), authenticate.verifyUser, (req, res, next) => {
     Tweets.create(req.body)
         .then((tweet) => {
             console.log('Tweet created ', tweet);
@@ -48,11 +48,11 @@ tweetRouter.route('/')
         }, (err) => next(err)) // Handle error
         .catch((err) => next(err));
 })
-.put(cors(), (req, res, next) => {
+.put(cors(), authenticate.verifyUser, (req, res, next) => {
     res.statusCode = 403;
     res.end('PUT not supported');
 })
-.delete(cors(), (req, res, next) => {
+.delete(cors(), authenticate.verifyUser, (req, res, next) => {
     res.statusCode = 403;
     res.end('DELETE operation not supported')
 });
@@ -68,11 +68,11 @@ tweetRouter.route('/:tweetId')
         }, (err) => next(err)) // Handle error
         .catch((err) => next(err));
 })
-.post(cors(), (req, res, next) => {
+.post(cors(), authenticate.verifyUser, (req, res, next) => {
     res.statusCode = 403;
     res.end('POST not supported');
 })
-.put(cors(), (req, res, next) => {
+.put(cors(), authenticate.verifyUser, (req, res, next) => {
     Tweets.findByIdAndUpdate(req.params.tweetId, {
         $set: req.body
     }, { new: true })
@@ -83,7 +83,7 @@ tweetRouter.route('/:tweetId')
         }, (err) => next(err)) // Handle error
         .catch((err) => next(err));
 })
-.delete(cors(), (req, res, next) => {
+.delete(cors(), authenticate.verifyUser, (req, res, next) => {
     Tweets.findByIdAndRemove(req.params.tweetId)
         .then((resp) => {
             req.statusCode = 200;
