@@ -88,6 +88,7 @@ export class AuthService {
    }
 
    logIn(user: any): Observable<any> {
+     console.log("logging in: " + user);
      return this.http.post<AuthResponse>(baseURL + 'users/login',
        {'username': user.username, 'password': user.password})
        .pipe( map(res => {
