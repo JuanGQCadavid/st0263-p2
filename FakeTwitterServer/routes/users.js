@@ -51,12 +51,10 @@ router.post('/login', cors(), (req, res, next) => {
             res.setHeader('Content-Type', 'application/json');
             res.json({success: false, status: 'Login Unsuccessful!', err: 'Could not log in user!'});
           } else {
-            console.log("Authenticating user");
             var token = authenticate.getToken({_id: req.user._id});
             res.statusCode = 200;
             res.setHeader('Content-Type', 'application/json');
             res.json({success: true, status: 'Login Successful!', token: token});
-            console.log("User authenticated");
           }
         });
       }

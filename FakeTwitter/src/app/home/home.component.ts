@@ -23,6 +23,7 @@ import { EditComponent } from '../edit/edit.component';
 export class HomeComponent implements OnInit {
 
   subscription: Subscription;
+  tweetSubscription: Subscription;
   username: string = undefined;
   tweets: Tweet[];
   filterForm: FormGroup;
@@ -40,7 +41,7 @@ export class HomeComponent implements OnInit {
     }
 
   ngOnInit() {
-    this.tweetService.getTweets(this.filter)
+    this.tweetSubscription = this.tweetService.getTweets(this.filter)
       .subscribe((tweets) => this.tweets = tweets);
     this.authService.loadUserCredentials();
     this.subscription = this.authService.getUsername()
