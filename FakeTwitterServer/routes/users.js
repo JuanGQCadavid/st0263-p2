@@ -44,20 +44,21 @@ router.post('/login', cors(), (req, res, next) => {
         res.statusCode = 401;
         res.setHeader('Content-Type', 'application/json');
         res.json({success: false, status: 'Login Unsuccessful!', err: info});
+      } else {
+        req.logIn(user, (err) =>  {
+          if (err) {
+            res.statusCode = 401;
+            res.setHeader('Content-Type', 'application/json');
+            res.json({success: false, status: 'Login Unsuccessful!', err: 'Could not log in user!'});
+          } else {
+            var token = authenticate.getToken({_id: req.user._id});
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.json({success: true, status: 'Login Successful!', token: token});
+          }
+        });
       }
-      req.logIn(user, (err) =>  {
-        if (err) {
-          res.statusCode = 401;
-          res.setHeader('Content-Type', 'application/json');
-          res.json({success: false, status: 'Login Unsuccessful!', err: 'Could not log in user!'});
-        }
-
-        var token = authenticate.getToken({_id: req.user._id});
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        res.json({success: true, status: 'Login Successful!', token: token});
-      });
-    }) (req, res, next);
+  }) (req, res, next);
 });
 
 router.get('/logout', (req, res) => {

@@ -38,7 +38,7 @@ tweetRouter.route('/')
         .catch((err) => next(err));
     }
 })
-.post(cors(), authenticate.verifyUser, (req, res, next) => {
+.post(cors(), (req, res, next) => {
     Tweets.create(req.body)
         .then((tweet) => {
             console.log('Tweet created ', tweet);
@@ -72,7 +72,7 @@ tweetRouter.route('/:tweetId')
     res.statusCode = 403;
     res.end('POST not supported');
 })
-.put(cors(), authenticate.verifyUser, (req, res, next) => {
+.put(cors(), (req, res, next) => {
     Tweets.findByIdAndUpdate(req.params.tweetId, {
         $set: req.body
     }, { new: true })
@@ -83,7 +83,7 @@ tweetRouter.route('/:tweetId')
         }, (err) => next(err)) // Handle error
         .catch((err) => next(err));
 })
-.delete(cors(), authenticate.verifyUser, (req, res, next) => {
+.delete(cors(), (req, res, next) => {
     Tweets.findByIdAndRemove(req.params.tweetId)
         .then((resp) => {
             req.statusCode = 200;
