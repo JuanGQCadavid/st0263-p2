@@ -28,7 +28,7 @@
             </button>
         </form>
         <mat-divider class="space-top"></mat-divider>
-        <div *ngIf="userWrapper.user">
+        <div *ngIf="username">
             <button class="space-top" mat-raised-button color="primary" (click)="openComposeForm()">Compose</button>
         </div>
     </div>
@@ -42,7 +42,7 @@
                 <p matLine>@{{tweet.author}}</p>
                 <p class="gray-text" matLine>#{{tweet.topic}} {{tweet.createdAt | date}}</p>
                 <p matLine>{{tweet.content}}</p>
-                <div *ngIf="userWrapper.user && userWrapper.user.username == tweet.author" matLine>
+                <div *ngIf="username && username == tweet.author" matLine>
                     <button mat-raised-button class="separate" (click)="openEditForm(tweet)">Edit</button>
                     <button mat-raised-button class="separate" (click)="deleteTweet(tweet)">Delete</button>
                 </div>

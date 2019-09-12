@@ -13,9 +13,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { TweetService } from './services/tweet.service';
-import { LoginService } from './services/login.service';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
+import { AuthInterceptor, UnauthorizedInterceptor } from './services/auth.interceptor';
 
 import { baseURL } from './shared/baseurl';
 
@@ -55,7 +58,18 @@ import { EditComponent } from './edit/edit.component';
   ],
   providers: [
     TweetService,
-    LoginService,
+    AuthService,
+    AuthGuardService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UnauthorizedInterceptor,
+      multi: true
+    },
     {provide: 'BaseURL', useValue: baseURL}
   ],
   entryComponents: [

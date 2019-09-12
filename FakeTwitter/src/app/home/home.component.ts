@@ -4,13 +4,13 @@ import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
 import { MatDialog, MatDialogRef } from '@angular/material';
+import { Subscription } from 'rxjs';
 
-import { LoginService } from '../services/login.service';
 import { TweetService } from '../services/tweet.service';
+import { AuthService } from '../services/auth.service';
 
 import { Filter } from '../shared/filter';
 import { Tweet } from '../shared/tweet';
-import { UserWrapper } from '../shared/userWrapper';
 
 import { ComposeComponent } from '../compose/compose.component';
 import { EditComponent } from '../edit/edit.component';
@@ -22,16 +22,16 @@ import { EditComponent } from '../edit/edit.component';
 })
 export class HomeComponent implements OnInit {
 
+  subscription: Subscription;
   username: string;
   tweets: Tweet[];
-  userWrapper: UserWrapper;
   filterForm: FormGroup;
   filter: Filter = null;
   @ViewChild('fform', {static: false}) filterFormDirective;
 
 
-  constructor(private loginService: LoginService,
-    private tweetService: TweetService,
+  constructor(private tweetService: TweetService,
+    private authService: AuthService,
     private route: ActivatedRoute,
     private location: Location,
     private fb: FormBuilder,
@@ -42,8 +42,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.tweetService.getTweets(this.filter)
       .subscribe((tweets) => this.tweets = tweets);
-    this.loginService.getUserWrapper()
-      .subscribe((userWrapper) => this.userWrapper = userWrapper);
+    this.authService.loadUserCredentials();
+    this.subscription = this.authService.getUsername()
+      .subscribe(name => { console.log(name); this.username = name; });
   }
 
   createForm() {
@@ -66,7 +67,7 @@ export class HomeComponent implements OnInit {
 
   openComposeForm() {
     this.dialog.open(ComposeComponent, {
-      data: this.userWrapper.user.username
+      data: this.username
     });
   }
 
