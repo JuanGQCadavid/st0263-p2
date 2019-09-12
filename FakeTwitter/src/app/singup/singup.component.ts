@@ -82,5 +82,4 @@ export class SingupComponent implements OnInit {
       console.log(error);
     });
   }
-
 }
