@@ -83,7 +83,6 @@ export class AuthService {
      return this.http.post<AuthResponse>(baseURL + 'users/signup',
        {'username': user.username, 'password': user.password})
        .pipe( map(res => {
-           this.storeUserCredentials({username: user.username, token: res.token});
            return {'success': true, 'username': user.username };
        }));
    }

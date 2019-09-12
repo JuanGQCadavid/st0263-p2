@@ -81,7 +81,6 @@ export class SingupComponent implements OnInit {
     }, error => {
       console.log(error);
     });
-    this.dialogRef.close();
   }
 
 }

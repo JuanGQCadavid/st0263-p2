@@ -23,7 +23,7 @@ export class ToolbarComponent implements OnInit {
   ngOnInit() {
     this.authService.loadUserCredentials();
     this.subscription = this.authService.getUsername()
-      .subscribe(name => { console.log(name); this.user = name; });
+      .subscribe(name => { console.log('toolbar: ' + name); this.user = name; });
   }
 
   openLoginForm() {

@@ -23,7 +23,7 @@ import { EditComponent } from '../edit/edit.component';
 export class HomeComponent implements OnInit {
 
   subscription: Subscription;
-  username: string;
+  username: string = undefined;
   tweets: Tweet[];
   filterForm: FormGroup;
   filter: Filter = null;
@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
       .subscribe((tweets) => this.tweets = tweets);
     this.authService.loadUserCredentials();
     this.subscription = this.authService.getUsername()
-      .subscribe(name => { console.log(name); this.username = name; });
+      .subscribe(name => { console.log('home: ' + name); this.username = name; });
   }
 
   createForm() {
