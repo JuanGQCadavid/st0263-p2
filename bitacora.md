@@ -108,3 +108,6 @@ El tiempo de carga pasó de ~40s a ~2s y las TPS pasaron de 3.7 a 12.37
 #### Tests después de realizadas las tareas de disponibilidad y seguridad
 ---
 TODO
+
+## 11-09-2019
+Adición de cookies a la página, y corrección de bug que hacía que fallara la actualización de la página en http.
