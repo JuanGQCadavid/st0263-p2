@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material';
 
 import { User } from '../shared/user';
-import { LoginService } from '../services/login.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(private lb: FormBuilder,
-    private loginService: LoginService,
+    private authService: AuthService,
     public dialogRef: MatDialogRef<LoginComponent>) {
     this.createForm();
    }
@@ -72,8 +72,14 @@ export class LoginComponent implements OnInit {
 
   onSubmit() {
     this.user = this.loginForm.value;
-    this.loginService.login(this.user);
-    this.dialogRef.close();
+    this.authService.logIn(this.user).subscribe(res => {
+      if (res.success) {
+        this.dialogRef.close(res.success);
+      } else {
+        console.log(res);
+      }
+    }, error => {
+      console.log(error);
+    });
   }
-
 }

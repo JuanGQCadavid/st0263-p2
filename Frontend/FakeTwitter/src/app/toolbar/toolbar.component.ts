@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
+import { Subscription } from 'rxjs';
 
 import { LoginComponent } from '../login/login.component';
-import { LoginService } from '../services/login.service';
-import { UserWrapper } from '../shared/userWrapper';
 import { SingupComponent } from '../singup/singup.component';
+
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -13,15 +14,16 @@ import { SingupComponent } from '../singup/singup.component';
 })
 export class ToolbarComponent implements OnInit {
 
-  userWrapper: UserWrapper;
   user: string;
+  subscription : Subscription;
 
-  constructor(public dialog: MatDialog,
-    private loginService: LoginService) { }
+  constructor(private authService: AuthService,
+    public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.loginService.getUserWrapper()
-      .subscribe((userWrapper) => this.userWrapper = userWrapper);
+    this.authService.loadUserCredentials();
+    this.subscription = this.authService.getUsername()
+      .subscribe(name => { console.log('toolbar: ' + name); this.user = name; });
   }
 
   openLoginForm() {
@@ -33,6 +35,6 @@ export class ToolbarComponent implements OnInit {
   }
 
   logOut() {
-    this.loginService.logout();
+    this.authService.logOut();
   }
 }

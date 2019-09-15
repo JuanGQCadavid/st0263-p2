@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material';
 
 import { User } from '../shared/user';
-import { LoginService } from '../services/login.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-singup',
@@ -31,7 +31,7 @@ export class SingupComponent implements OnInit {
   }
 
   constructor(private sb: FormBuilder,
-    private loginService: LoginService,
+    private authService: AuthService,
     public dialogRef: MatDialogRef<SingupComponent>) {
       this.createForm();
     }
@@ -72,8 +72,14 @@ export class SingupComponent implements OnInit {
 
   onSubmit() {
     this.user = this.signupForm.value;
-    this.loginService.signup(this.user);
-    this.dialogRef.close();
+    this.authService.signUp(this.user).subscribe(res => {
+      if (res.success) {
+        this.dialogRef.close(res.success);
+      } else {
+        console.log(res);
+      }
+    }, error => {
+      console.log(error);
+    });
   }
-
 }
