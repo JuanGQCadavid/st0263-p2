@@ -23,11 +23,11 @@ export class EditComponent implements OnInit {
   validationMessages = {
     'topic': {
       'required': 'A topic is required',
-      'maxlength': 'The topic cannot be more than 25 characters long'
+      'maxLength': 'The topic cannot be more than 25 characters long'
     },
     'comment': {
       'required': 'A comment is required',
-      'maxlength': 'The comment cannot be more than 500 characters long'
+      'maxLength': 'The comment cannot be more than 500 characters long'
     }
   }
 
@@ -45,7 +45,7 @@ export class EditComponent implements OnInit {
   createForm() {
     this.editForm = this.eb.group({
       topic: [this.tweet.topic, [Validators.required, Validators.maxLength(25)]],
-      comment: [this.tweet.content, [Validators.required, Validators.maxLength(500)]]
+      comment: [this.tweet.content, [Validators.required, Validators.maxLength(250)]]
     });
 
     this.editForm.valueChanges
