@@ -18,6 +18,6 @@ docker rm api-server
 docker build -t api-img .
 
 docker run --name api-server \
-    -p 3000:3000\
+    -p 80:3000\
     -d \
     api-img
