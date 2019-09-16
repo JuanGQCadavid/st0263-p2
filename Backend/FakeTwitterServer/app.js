@@ -16,12 +16,23 @@ const mongoose = require('mongoose');
 // MongoDB URL for non docker tests
 // const url = 'mongodb://localhost:27017/fakeTwitterDB'
 // MongoDB URL from the docker-compose file
-const url = config.mongoURL;
-const connect = mongoose.connect(url);
+const url_M = config.mongoURL_M;
+const url_S = config.mongoURL_S;
 
-connect.then((db) => {
-  console.log('Connected correctly to server');
-}, (err) => { console.log(err); });
+try {
+  const connect = mongoose.connect(url_M);
+  connect.then((db) => {
+    console.log('Connected correctly to server');
+  }, (err) => { console.log(err); });
+}
+catch (error){
+  const connect = mongoose.connect(url_S);
+  connect.then((db) => {
+    console.log('Connected correctly to server');
+  }, (err) => { console.log(err); });
+}
+
+
 
 var app = express();
 
