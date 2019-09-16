@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(st0263-api.tk www.st0263-api.tk)
+domains=(api-v8.tk www.api-v8.tk)
 rsa_key_size=4096
 data_path="./data/certbot"
 email="jquiro12@eafit.edu.co" # Adding a valid address is strongly recommended
