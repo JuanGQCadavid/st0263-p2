@@ -1,1 +1,1 @@
-export const baseURL = 'https://valentarmo.tk/data/';
+export const baseURL = 'https://api-v8.tk/';
