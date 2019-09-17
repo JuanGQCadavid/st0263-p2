@@ -26,7 +26,9 @@ export class SingupComponent implements OnInit {
       'required': 'Username is required'
     },
     'password': {
-      'required': 'Password is required'
+      'required': 'Password is required',
+      'minLength': 'The password must be at least 8 characters long',
+      'pattern': 'The password must contain at least one Upper and Lower case character, at least one number, and a one of the following special characters: #, $, %, !, @, ^, #, &, ?'
     }
   }
 
@@ -42,7 +44,7 @@ export class SingupComponent implements OnInit {
   createForm() {
     this.signupForm = this.sb.group({
       username: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))/)]]
     });
 
     this.signupForm.valueChanges
