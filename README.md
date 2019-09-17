@@ -43,7 +43,7 @@ Proyecto 2 Tópicos especiales en telemática (aplicación web de registro de co
 * Se aplico politica de Faill over y Faill back hacia la persistencia (HA)
 * Se ccambiaron los puertos para mas dinamismo
 ### Database
-* Se aplico redundancia de los datos, creando un Cluster de Mongo con dos servidor uno como Master y otro como Slave, ambos mantienen una sincroninzacion de los datos.
+* Se aplico redundancia de los datos, creando un Cluster de Mongo con dos servidor uno como Master y otro como Slave, ambos mantienen una sincroninzacion de los datos. (HA)
 
 ## Diseño para la escalabiliad
 
