@@ -14,9 +14,9 @@ Proyecto 2 Tópicos especiales en telemática (aplicación web de registro de co
 
 ----
 
-* Paredes
-* **Rol ->** 
-* **Correo ->** 
+* Valentino Malvarmo Paredes
+* **Rol ->** Rendimiento
+* **Correo ->** valentarmo@gmail.com
 ----
 
 * Willy
@@ -30,7 +30,7 @@ Proyecto 2 Tópicos especiales en telemática (aplicación web de registro de co
 
 * **Disponibilidad**: Consiste en mediante
 * **Seguridad**:
-* **Rendimiento** :
+* **Rendimiento** : Se refiere a la velocidad en que páginas web son descargadas y renderizadas en el navegador del usuario, debería ser de alrededor de 5 segundos utilizando https.
 
 ## Rediseño de la Aplicacion
 
@@ -39,9 +39,11 @@ Proyecto 2 Tópicos especiales en telemática (aplicación web de registro de co
 ### Frontend
 * Se quito la capa de SSL, dejando el trabajo a los balanceadores y reduciendo complejidad (HA)
 * Se cambio el enrutamiento de la API, y se apunto a otro balanceador para reducir carga (HA)
+* Adición de cookies
 ### Backend
 * Se aplico politica de Faill over y Faill back hacia la persistencia (HA)
 * Se ccambiaron los puertos para mas dinamismo (HA)
+* Adición de cookies
 ### Database
 * Se aplico redundancia de los datos, creando un Cluster de Mongo con dos servidor uno como Master y otro como Slave, ambos mantienen una sincroninzacion de los datos. (HA)
 
@@ -52,5 +54,22 @@ Proyecto 2 Tópicos especiales en telemática (aplicación web de registro de co
 ### Alta disponibilida
 
 ### Rendimiento
+
+#### Patrones de arquitectura
+
+Página web enriquecida
+
+#### Mejores prácticas
+
+* Compresión de datos en el servidor
+* Responsive design
+* Fusión de archivos js, css, html
+* Minimización de archivos js, css, html
+* Uglificación de archivos resultantes
+
+#### Herramientas
+
+* jmeter
+* Angular CLI
 
 ## Otra informacion relevante
