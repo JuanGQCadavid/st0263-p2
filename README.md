@@ -25,13 +25,25 @@ Proyecto 2 Tópicos especiales en telemática (aplicación web de registro de co
 
 ## Direcionamiento del Repositorio
 
+
 ## Especificaciones de Requisitos no funcionales
 
-* **Disponibilidad**:
+* **Disponibilidad**: Consiste en mediante
 * **Seguridad**:
 * **Rendimiento** :
 
-## Rediseño de la Aplicacion 
+## Rediseño de la Aplicacion
+
+### Balanceadores
+* Se creo 2 balanceadores de carga, tanto para balancear el frontend como el backend, implementanndo un pool de direcciones, ambos con un cifrado SSL y direccion DNS propia(HA)
+### Frontend
+* Se quito la capa de SSL, dejando el trabajo a los balanceadores y reduciendo complejidad (HA)
+* Se cambio el enrutamiento de la API, y se apunto a otro balanceador para reducir carga (HA)
+### Backend
+* Se aplico politica de Faill over y Faill back hacia la persistencia (HA)
+* Se ccambiaron los puertos para mas dinamismo
+### Database
+* Se aplico redundancia de los datos, creando un Cluster de Mongo con dos servidor uno como Master y otro como Slave, ambos mantienen una sincroninzacion de los datos.
 
 ## Diseño para la escalabiliad
 
