@@ -30,23 +30,20 @@ Proyecto 2 Tópicos especiales en telemática (aplicación web de registro de co
 
 ## Direcionamiento del Repositorio
 
+## Especificaciones de Requisitos no funcionales
 
-## Tecnologias utilizadas
-* Front-end ------> Angular
-* Back-end -------> Express (Javascript)
-* Base de datos --> Mongodb
-* Servidor web ---> Nginx
+* **Disponibilidad**:
+* **Seguridad**:
+* **Rendimiento** :
 
-# Documentacion de las mejoras en QoS
-----
-## High Availability
+## Rediseño de la Aplicacion 
 
-----
-## Perfomance
+## Diseño para la escalabiliad
 
-----
-## Security
+### Seguridad
 
-----
-# Uso
+### Alta disponibilida
 
+### Rendimiento
+
+## Otra informacion relevante
