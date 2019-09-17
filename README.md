@@ -23,11 +23,6 @@ Proyecto 2 Tópicos especiales en telemática (aplicación web de registro de co
 * **Rol ->** 
 * **Correo ->** 
 
-## Status
-
-* Web -> https://st0263-v8.tk
-* Api -> https://api-v8.tk
-
 ## Direcionamiento del Repositorio
 
 ## Especificaciones de Requisitos no funcionales
