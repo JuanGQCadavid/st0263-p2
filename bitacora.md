@@ -22,7 +22,7 @@
 
 #### Tests después de mejoras
 ---
-El tiempo de carga pasó de ~40s a ~2s y las TPS pasaron de 3.7 a 12.37
+El tiempo de carga pasó de ~40s a ~2s y las TPS pasaron de 3.7 a 132.37
 
 ![Tiempo de carga 1](performance/load_time/after1.png)
 
@@ -32,7 +32,11 @@ El tiempo de carga pasó de ~40s a ~2s y las TPS pasaron de 3.7 a 12.37
 
 #### Tests después de realizadas las tareas de disponibilidad y seguridad
 ---
-TODO
+El tiempo de carga subio una fracción a alrededor de 3s y las TPS pasaron de 132.37 a 
+
+![Tiempo de carga](performance/load_time/integrated.png)
+
+[jmeter](performance/jmeter/integrated)
 
 ## 11-09-2019
 Adición de cookies a la página, y corrección de bug que hacía que fallara la actualización de la página en http.
