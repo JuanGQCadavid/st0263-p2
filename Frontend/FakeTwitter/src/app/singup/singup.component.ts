@@ -44,7 +44,7 @@ export class SingupComponent implements OnInit {
   createForm() {
     this.signupForm = this.sb.group({
       username: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))/)]]
+      password: ['', [Validators.required, Validators.minLength(8), Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/)]]
     });
 
     this.signupForm.valueChanges
