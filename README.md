@@ -1,12 +1,32 @@
 # ST0263-P2
 Proyecto 2 Tópicos especiales en telemática (aplicación web de registro de comentarios)
 
-# Status
+## Integrantes
 
-* Web link -> https://st0263-v8.tk
-* Api link -> https://api-v8.tk
+* Juan Gonzalo Quiroz Cadavid
+* **Rol ->** Alta Disponiblidad
+* **Correo ->** jquiro12@eafit.edu.co
 
-# Tecnologias utilizadas
+----
+
+* Paredes
+* **Rol ->** 
+* **Correo ->** 
+----
+
+* Willy
+* **Rol ->** 
+* **Correo ->** 
+
+## Status
+
+* Web -> https://st0263-v8.tk
+* Api -> https://api-v8.tk
+
+## Direcionamiento del Repositorio
+
+
+## Tecnologias utilizadas
 * Front-end ------> Angular
 * Back-end -------> Express (Javascript)
 * Base de datos --> Mongodb
