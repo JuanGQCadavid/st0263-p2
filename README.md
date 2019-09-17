@@ -1,4 +1,8 @@
-[![Status](https://img.shields.io/badge/Status-Online-green.svg)](https://st0263-v8.tk)
+
+[![Front Status](https://img.shields.io/badge/FrontStatus-Online-green)](https://st0263-v8.tk)
+[![ Banck status](https://img.shields.io/badge/ApiStatus-Online-green)](https://api-v8.tk)
+
+
 # ST0263-P2
 Proyecto 2 Tópicos especiales en telemática (aplicación web de registro de comentarios)
 
