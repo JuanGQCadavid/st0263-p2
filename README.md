@@ -50,21 +50,42 @@ Proyecto 2 Tópicos especiales en telemática (aplicación web de registro de co
 ## Diseño para la escalabiliad
 
 ### Seguridad
-
+----
 #### Mejores prácticas
 
-*Proteccion con Https para evitar ataques de tipo Man-in-the-middle
-*Definicion de politicas de creacion para passwords más fuertes
-*Ataques de tipo Sql son evitados por la naturaleza de la base de datos y el framework express
+* Proteccion con Https para evitar ataques de tipo Man-in-the-middle
+* Definicion de politicas de creacion para passwords más fuertes
+* Ataques de tipo Sql son evitados por la naturaleza de la base de datos y el framework express
 
 #### Herramientas
 
 * Expresiones regulares
 
 ### Alta disponibilida
+----
+#### Patrones de arquitectura
+
+* Esquemas redundantes
+* Bajo Acoplamiento
+* Arquitecturas Reactivas
+
+#### Mejores prácticas
+
+* Tener multiples instancias corriendo para un mismo servicio
+* Balancear las cargas usando politicas probadas
+* Infraestructura como Codigo
+* Services register / discovery
+* Cluster de base de datos con redundancia.
+
+#### Herramientas
+
+* Consul
+* Jenkins
+* Docker
+* Kubernetes
 
 ### Rendimiento
-
+----
 #### Patrones de arquitectura
 
 Página web enriquecida
