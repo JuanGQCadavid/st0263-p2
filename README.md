@@ -57,7 +57,7 @@ Proyecto 2 Tópicos especiales en telemática (aplicación web de registro de co
 *Definicion de politicas de creacion para passwords más fuertes
 *Ataques de tipo Sql son evitados por la naturaleza de la base de datos y el framework express
 
-## Herramientas
+#### Herramientas
 
 * Expresiones regulares
 
